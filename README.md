@@ -1,6 +1,6 @@
 # 💫 Hi 👋, I'm Raja Sharma 
 
-**A passionate Cloud Engineer || DevOps Engineer || Kafka Admin from India 🇮🇳**
+**A passionate Full-Stack Developer || Tech Enthusiast || Problem Solver from India 🇮🇳**
 
 Email Me 👉 ✉️ **[luciferofx69@gmail.com](mailto:luciferofx69@gmail.com)** For Collaboration, Projects or Anything Else. 😊🚀
 
