@@ -1,6 +1,19 @@
-# 💫 About Me:
-🔭 I’m currently working on: Building modern web & fintech applications with React, Node.js, Firebase, and MongoDB.<br>🌱 I’m currently learning: Full-Stack Development, Cloud Technologies, Cybersecurity, and AI.<br>👯 I’m looking to collaborate on: Open-source projects, fintech platforms, web applications, and innovative tech projects.<br>🤔 I’m looking for help with: Scaling projects, backend architecture, APIs, and advanced full-stack development.<br>💬 Ask me about: Tech, Full-Stack Development, React, Node.js, Firebase, APIs, and Collaboration.<br>📫 How to reach me: Drop me a message or connect with me through GitHub.<br>😄 Pronouns: Raja Sharma<br>⚡ Fun fact: I Love Tech and Tech Love Me. 🚀<br>
+# 💫 Hi 👋, I'm Imran Alam
 
+**A passionate Cloud Engineer || DevOps Engineer || Kafka Admin from India 🇮🇳**
+
+Email Me 👉 ✉️ **[luciferofx69@gmail.com](mailto:luciferofx69@gmail.com)** For Collaboration, Projects or Anything Else. 😊🚀
+
+* 🔭 **I’m currently working on:** Cloud Infrastructure, DevOps Automation, and Scalable Tech Projects
+* 🌱 **I’m currently learning:** Kubernetes, Docker, AWS, CI/CD, Cloud Security, and Advanced DevOps
+* 👯 **I’m looking to collaborate on:** Open-Source Projects, Cloud & DevOps Projects, Automation, and Innovative Tech Solutions
+* 🤔 **I’m looking for help with:** Cloud Architecture, DevOps Automation, Kubernetes, and Distributed Systems
+* 💬 **Ask me about:** Cloud, DevOps, Kafka, Linux, Docker, Kubernetes, Automation, and Tech Support
+* 📫 **How to reach me:** ✉️ **[luciferofx69@gmail.com](mailto:luciferofx69@gmail.com)**
+* 😄 **Pronouns:** Raja Sharma
+* ⚡ **Fun fact:** I Love Tech and Tech Love Me. ❤️‍🔥💻
+
+## 🔗 I am a Software Engineer. 😊🚀
 
 ## 🌐 Socials:
 [![Discord](https://img.shields.io/badge/Discord-%237289DA.svg?logo=discord&logoColor=white)](https://discord.gg/https://discord.gg/JYfYV5XJQc) [![email](https://img.shields.io/badge/Email-D14836?logo=gmail&logoColor=white)](mailto:luciferofx69@gmail.com) 
