@@ -19,8 +19,7 @@ Email Me 👉 ✉️ **[luciferofx69@gmail.com](mailto:luciferofx69@gmail.com)**
 [![Discord](https://img.shields.io/badge/Discord-%237289DA.svg?logo=discord&logoColor=white)](https://discord.gg/https://discord.gg/JYfYV5XJQc) [![email](https://img.shields.io/badge/Email-D14836?logo=gmail&logoColor=white)](mailto:luciferofx69@gmail.com) 
 
 ## 🏆 GitHub Trophies
-![](https://github-profile-trophy.vercel.app/?username=alamimran613&theme=radical&no-frame=false&no-bg=false&margin-w=4)
-
+![](https://github-profile-trophy.vercel.app/?username=luciferofx&theme=radical&no-frame=false&no-bg=false&margin-w=4)
 
 
 # 💻 Tech Stack:
