@@ -1,11 +1,6 @@
-/* ============================================================
-   RAJA SHARMA — PORTFOLIO SCRIPT
-   ============================================================ */
-
 document.addEventListener('DOMContentLoaded', () => {
 
-  /* ---------- PRELOADER ---------- */
-  (function initPreloader() {
+  const initPreloader = () => {
     const pre = document.getElementById('preloader');
     const bar = document.getElementById('preloaderBar');
     const pct = document.getElementById('preloaderPercent');
@@ -17,8 +12,10 @@ document.addEventListener('DOMContentLoaded', () => {
 
     let progress = 0;
     let lineIndex = 0;
+    let lineTimer = null;
+    let progressTimer = null;
 
-    const lineTimer = setInterval(() => {
+    lineTimer = setInterval(() => {
       if (lineIndex < lines.length) {
         lines[lineIndex].classList.add('show');
         lineIndex++;
@@ -27,7 +24,7 @@ document.addEventListener('DOMContentLoaded', () => {
       }
     }, 220);
 
-    const progressTimer = setInterval(() => {
+    progressTimer = setInterval(() => {
       const step = progress < 70
         ? Math.random() * 4 + 1.5
         : progress < 92
@@ -46,14 +43,14 @@ document.addEventListener('DOMContentLoaded', () => {
       }
     }, 60);
 
-    function finishPreloader() {
+    const finishPreloader = () => {
       pre.classList.add('done');
       document.body.style.overflow = '';
       window.dispatchEvent(new Event('scroll'));
       setTimeout(() => { pre.style.display = 'none'; }, 900);
-    }
+    };
 
-    function skip() {
+    const skip = () => {
       progress = 100;
       bar.style.width = '100%';
       pct.textContent = '100';
@@ -63,21 +60,24 @@ document.addEventListener('DOMContentLoaded', () => {
       finishPreloader();
       window.removeEventListener('keydown', onKey);
       pre.removeEventListener('click', skip);
-    }
-    function onKey(e) { if (e.key === 'Escape') skip(); }
+    };
+
+    const onKey = (e) => { if (e.key === 'Escape') skip(); };
+
     window.addEventListener('keydown', onKey);
     pre.addEventListener('click', skip);
-  })();
+  };
 
-  /* ---------- 0. RIGHT-CLICK DISABLE + SCREENSHOT BLACKOUT ---------- */
+  initPreloader();
+
   const blackout = document.getElementById('blackout');
 
-  function flashBlackout(ms = 400) {
+  const flashBlackout = (ms = 400) => {
     if (!blackout) return;
     blackout.classList.add('active');
     clearTimeout(blackout._t);
     blackout._t = setTimeout(() => blackout.classList.remove('active'), ms);
-  }
+  };
 
   document.addEventListener('contextmenu', (e) => {
     e.preventDefault();
@@ -120,20 +120,21 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   });
 
-  document.addEventListener('visibilitychange', () => {
-    if (document.hidden) flashBlackout(300);
-  });
-
-  /* ---------- 1. CUSTOM CURSOR ---------- */
-  const dot  = document.getElementById('cursorDot');
+  const dot = document.getElementById('cursorDot');
   const ring = document.getElementById('cursorRing');
   let mouseX = 0, mouseY = 0, ringX = 0, ringY = 0;
 
   if (dot && ring && window.matchMedia('(pointer: fine)').matches) {
-    window.addEventListener('mousemove', e => {
+    dot.style.opacity = '0';
+    ring.style.opacity = '0';
+
+    window.addEventListener('mousemove', (e) => {
       mouseX = e.clientX; mouseY = e.clientY;
       dot.style.transform = `translate(${mouseX}px, ${mouseY}px) translate(-50%,-50%)`;
+      dot.style.opacity = '1';
+      ring.style.opacity = '1';
     });
+
     const follow = () => {
       ringX += (mouseX - ringX) * 0.16;
       ringY += (mouseY - ringY) * 0.16;
@@ -141,6 +142,7 @@ document.addEventListener('DOMContentLoaded', () => {
       requestAnimationFrame(follow);
     };
     follow();
+
     document.querySelectorAll('a, button, .project-card, .info-card, .spark')
       .forEach(el => {
         el.addEventListener('mouseenter', () => ring.classList.add('hover'));
@@ -148,7 +150,6 @@ document.addEventListener('DOMContentLoaded', () => {
       });
   }
 
-  /* ---------- 2. SCROLL PROGRESS ---------- */
   const progress = document.getElementById('scrollProgress');
   window.addEventListener('scroll', () => {
     const h = document.documentElement;
@@ -156,7 +157,6 @@ document.addEventListener('DOMContentLoaded', () => {
     if (progress) progress.style.width = pct + '%';
   });
 
-  /* ---------- 3. NAV ---------- */
   const nav = document.getElementById('nav');
   const navToggle = document.getElementById('navToggle');
   const navLinks = document.getElementById('navLinks');
@@ -173,15 +173,17 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 
   navToggle?.addEventListener('click', () => {
-    navToggle.classList.toggle('open');
-    navLinks.classList.toggle('open');
-  });
-  links.forEach(l => l.addEventListener('click', () => {
-    navToggle?.classList.remove('open');
-    navLinks?.classList.remove('open');
-  }));
+  const isOpen = navToggle.classList.toggle('open');
+  navLinks.classList.toggle('open', isOpen);
+  navToggle.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+});
 
-  /* ---------- 4. REVEAL ON SCROLL ---------- */
+links.forEach(l => l.addEventListener('click', () => {
+  navToggle?.classList.remove('open');
+  navLinks?.classList.remove('open');
+  navToggle?.setAttribute('aria-expanded', 'false');
+}));
+
   const io = new IntersectionObserver((entries) => {
     entries.forEach((entry, i) => {
       if (entry.isIntersecting) {
@@ -191,15 +193,15 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }, { threshold: 0.12 });
 
-  document.querySelectorAll('[data-reveal]').forEach(el => io.observe(el));
+  document.querySelectorAll('[data-reveal]:not(.hero-title .line)').forEach(el => io.observe(el));
 
-  /* ---------- 4b. PROJECT CARDS: SCROLL SLIDE-IN ---------- */
-  document.querySelectorAll('.projects-grid .project-card').forEach(card => {
-    card.removeAttribute('data-reveal');
+  document.querySelectorAll('.hero-title .line').forEach(el => {
+    el.classList.add('revealed');
   });
 
   const projectCards = document.querySelectorAll('.projects-grid .project-card');
   projectCards.forEach((card, i) => {
+    card.removeAttribute('data-reveal');
     card.style.transitionDelay = `${(i % 3) * 0.12}s`;
   });
 
@@ -216,10 +218,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
   projectCards.forEach(card => cardIO.observe(card));
 
-  /* ---------- 4c. SCROLL PARALLAX FOR CARDS ---------- */
   let cardScrollTick = false;
 
-  function updateCardParallax() {
+  const updateCardParallax = () => {
     const viewportH = window.innerHeight;
     projectCards.forEach(card => {
       if (!card.classList.contains('slide-in')) return;
@@ -234,7 +235,7 @@ document.addEventListener('DOMContentLoaded', () => {
         `translateY(${translateY}px) rotateX(${rotateX}deg) scale(1)`;
     });
     cardScrollTick = false;
-  }
+  };
 
   window.addEventListener('scroll', () => {
     if (!cardScrollTick) {
@@ -245,7 +246,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
   updateCardParallax();
 
-  /* ---------- 5. COUNTERS ---------- */
   const counterIO = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
       if (!entry.isIntersecting) return;
@@ -265,7 +265,6 @@ document.addEventListener('DOMContentLoaded', () => {
   }, { threshold: 0.6 });
   document.querySelectorAll('.counter').forEach(el => counterIO.observe(el));
 
-  /* ---------- 6. SKILL BARS ---------- */
   const skillIO = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
       if (!entry.isIntersecting) return;
@@ -279,7 +278,6 @@ document.addEventListener('DOMContentLoaded', () => {
   }, { threshold: 0.25 });
   document.querySelectorAll('.skill-group').forEach(el => skillIO.observe(el));
 
-  /* ---------- 6b. PROJECT MODAL ---------- */
   const projectModal = document.getElementById('projectModal');
   const modalBackdrop = document.getElementById('modalBackdrop');
   const modalClose = document.getElementById('modalClose');
@@ -292,16 +290,28 @@ document.addEventListener('DOMContentLoaded', () => {
   const modalFeatureSection = document.getElementById('modalFeatureSection');
   const modalActions = document.getElementById('modalActions');
 
-  function openProjectModal(card) {
+  const openProjectModal = (card) => {
     if (!projectModal) return;
 
     const title = card.dataset.title || card.querySelector('h3')?.textContent || 'Project';
     const badge = card.dataset.badge || 'Project';
     const year = card.dataset.year || '2024';
     const desc = card.dataset.desc || card.querySelector('p')?.textContent || '';
-    const tech = (card.dataset.tech || '').split(',').filter(Boolean);
-    const features = (card.dataset.features || '').split('|').filter(Boolean);
-    const linksRaw = (card.dataset.links || '').split(';').filter(Boolean);
+
+    const tech = (card.dataset.tech || '')
+      .split(',')
+      .map(s => s.trim())
+      .filter(Boolean);
+
+    const features = (card.dataset.features || '')
+      .split('||')
+      .map(s => s.trim())
+      .filter(Boolean);
+
+    const linksRaw = (card.dataset.links || '')
+      .split(';;')
+      .map(s => s.trim())
+      .filter(Boolean);
 
     modalBadge.textContent = badge;
     modalYear.textContent = year;
@@ -311,7 +321,7 @@ document.addEventListener('DOMContentLoaded', () => {
     modalTech.innerHTML = '';
     tech.forEach(t => {
       const span = document.createElement('span');
-      span.textContent = t.trim();
+      span.textContent = t;
       modalTech.appendChild(span);
     });
 
@@ -320,7 +330,7 @@ document.addEventListener('DOMContentLoaded', () => {
       modalFeatureSection.style.display = 'block';
       features.forEach(f => {
         const li = document.createElement('li');
-        li.textContent = f.trim();
+        li.textContent = f;
         modalFeatures.appendChild(li);
       });
     } else {
@@ -332,7 +342,7 @@ document.addEventListener('DOMContentLoaded', () => {
       const [label, url] = raw.split('|');
       if (label && url) {
         const a = document.createElement('a');
-        a.href = url;
+        a.href = url.trim();
         a.target = '_blank';
         a.rel = 'noopener';
         a.textContent = label.trim() + ' ↗';
@@ -346,18 +356,17 @@ document.addEventListener('DOMContentLoaded', () => {
     projectModal.classList.add('active');
     projectModal.setAttribute('aria-hidden', 'false');
     document.body.style.overflow = 'hidden';
-  }
+  };
 
-  function closeProjectModal() {
+  const closeProjectModal = () => {
     if (!projectModal) return;
     projectModal.classList.remove('active');
     projectModal.setAttribute('aria-hidden', 'true');
     document.body.style.overflow = '';
-  }
+  };
 
   projectCards.forEach(card => {
     card.addEventListener('click', (e) => {
-      // don't open modal if user clicked a direct link
       if (e.target.closest('a')) return;
       openProjectModal(card);
     });
@@ -365,13 +374,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   modalClose?.addEventListener('click', closeProjectModal);
   modalBackdrop?.addEventListener('click', closeProjectModal);
-  document.addEventListener('keydown', (e) => {
-    if (e.key === 'Escape' && projectModal?.classList.contains('active')) {
-      closeProjectModal();
-    }
-  });
 
-  /* ---------- 7. MINI GAME ---------- */
   const board = document.getElementById('gameBoard');
   const overlay = document.getElementById('gameOverlay');
   const scoreEl = document.getElementById('gameScore');
@@ -379,7 +382,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const startBtn = document.getElementById('gameStart');
   let score = 0, timeLeft = 20, spawnTimer = null, clockTimer = null, playing = false;
 
-  function spawnSpark() {
+  const spawnSpark = () => {
     if (!playing) return;
     const spark = document.createElement('div');
     spark.className = 'spark';
@@ -400,9 +403,9 @@ document.addEventListener('DOMContentLoaded', () => {
       spark.remove();
       if (playing) spawnSpark();
     }, 1100);
-  }
+  };
 
-  function startGame() {
+  const startGame = () => {
     playing = true;
     score = 0; timeLeft = 20;
     scoreEl.textContent = '0';
@@ -416,27 +419,29 @@ document.addEventListener('DOMContentLoaded', () => {
       timeEl.textContent = timeLeft;
       if (timeLeft <= 0) endGame();
     }, 1000);
-  }
+  };
 
-  function endGame() {
+  const endGame = () => {
     playing = false;
     clearTimeout(spawnTimer);
     clearInterval(clockTimer);
     board.querySelectorAll('.spark').forEach(s => s.remove());
     overlay.classList.remove('hidden');
     overlay.innerHTML = `<p>Time's up! You caught <b style="color:var(--teal-bright)">${score}</b> sparks. ${score >= 10 ? '🔥 Sharp reflexes!' : 'Try again — beat your score!'}</p>`;
-  }
+  };
 
   startBtn?.addEventListener('click', startGame);
 
-  /* ---------- 8. CONTACT FORM (Formspree) + SUCCESS SCREEN ---------- */
   const form = document.getElementById('contactForm');
   const status = document.getElementById('formStatus');
   const submitBtn = document.getElementById('formSubmitBtn');
   const successScreen = document.getElementById('successScreen');
   const successCountdown = document.getElementById('successCountdown');
 
-  function showSuccessScreen() {
+  let successTimer = null;
+  let successHideTimeout = null;
+
+  const showSuccessScreen = () => {
     if (!successScreen) return;
     successScreen.classList.add('active');
     document.body.style.overflow = 'hidden';
@@ -444,25 +449,31 @@ document.addEventListener('DOMContentLoaded', () => {
     let seconds = 4;
     if (successCountdown) successCountdown.textContent = seconds;
 
-    const countdownTimer = setInterval(() => {
+    clearInterval(successTimer);
+    clearTimeout(successHideTimeout);
+
+    successTimer = setInterval(() => {
       seconds--;
       if (successCountdown) successCountdown.textContent = Math.max(0, seconds);
       if (seconds <= 0) {
-        clearInterval(countdownTimer);
+        clearInterval(successTimer);
+        successTimer = null;
         hideSuccessAndReset();
       }
     }, 1000);
-  }
+  };
 
-  function hideSuccessAndReset() {
+  const hideSuccessAndReset = () => {
     if (!successScreen) return;
+    clearInterval(successTimer);
+    clearTimeout(successHideTimeout);
     successScreen.classList.remove('active');
-    setTimeout(() => {
+    successHideTimeout = setTimeout(() => {
       document.body.style.overflow = '';
       window.scrollTo({ top: 0, behavior: 'auto' });
-      setTimeout(() => { window.location.reload(); }, 250);
+      successHideTimeout = setTimeout(() => { window.location.reload(); }, 250);
     }, 600);
-  }
+  };
 
   if (form && status && submitBtn) {
     const btnLabel = submitBtn.querySelector('.btn-label');
@@ -523,7 +534,16 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  /* ---------- 9. PARTICLE BACKGROUND ---------- */
+  document.addEventListener('keydown', (e) => {
+    if (e.key !== 'Escape') return;
+    if (projectModal?.classList.contains('active')) {
+      closeProjectModal();
+    }
+    if (successScreen?.classList.contains('active')) {
+      hideSuccessAndReset();
+    }
+  });
+
   const canvas = document.getElementById('bgCanvas');
   if (canvas) {
     const ctx = canvas.getContext('2d');
@@ -531,11 +551,11 @@ document.addEventListener('DOMContentLoaded', () => {
     const COUNT = window.innerWidth < 700 ? 40 : 85;
     const LINK_DIST = 120;
 
-    function resize() {
+    const resize = () => {
       W = canvas.width = window.innerWidth;
       H = canvas.height = window.innerHeight;
-    }
-    function init() {
+    };
+    const init = () => {
       particles = [];
       for (let i = 0; i < COUNT; i++) {
         particles.push({
@@ -546,8 +566,8 @@ document.addEventListener('DOMContentLoaded', () => {
           r: Math.random() * 1.6 + 0.5,
         });
       }
-    }
-    function draw() {
+    };
+    const draw = () => {
       ctx.clearRect(0, 0, W, H);
       particles.forEach(p => {
         p.x += p.vx; p.y += p.vy;
@@ -574,12 +594,11 @@ document.addEventListener('DOMContentLoaded', () => {
         }
       }
       requestAnimationFrame(draw);
-    }
+    };
     window.addEventListener('resize', () => { resize(); init(); });
     resize(); init(); draw();
   }
 
-  /* ---------- 10. HERO GLOW PARALLAX ---------- */
   const heroGlow = document.querySelector('.hero-glow');
   if (heroGlow) {
     let ticking = false;
@@ -597,7 +616,6 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  /* ---------- 11. PROJECT CARD 3D TILT ON MOVE ---------- */
   if (window.matchMedia('(pointer: fine)').matches) {
     document.querySelectorAll('.project-card').forEach(card => {
       card.addEventListener('mousemove', (e) => {
@@ -614,7 +632,6 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  /* ---------- 12. SMOOTH ANCHOR SCROLL ---------- */
   document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     anchor.addEventListener('click', function (e) {
       const targetId = this.getAttribute('href');
