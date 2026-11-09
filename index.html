@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="description" content="Raja Sharma — Full-Stack Developer, AI-Assisted Builder, IoT & Hardware Enthusiast. Building the future, one circuit at a time." />
+<meta name="theme-color" content="#080808" />
+<title>Raja Sharma — Developer & Builder</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="css/style.css" />
+<link rel="icon" href="assets/favicon.svg" type="image/svg+xml" />
+</head>
+<body>
+
+<!-- ============ CUSTOM CURSOR ============ -->
+<div class="cursor-dot" id="cursorDot"></div>
+<div class="cursor-ring" id="cursorRing"></div>
+
+<!-- ============ SCROLL PROGRESS ============ -->
+<div class="scroll-progress" id="scrollProgress"></div>
+
+<!-- ============ PARTICLE CANVAS BG ============ -->
+<canvas id="bgCanvas"></canvas>
+
+<!-- ============ NAVBAR ============ -->
+<nav class="nav" id="nav">
+  <a href="#home" class="nav-logo">
+    <span class="logo-bracket">&lt;</span>RS<span class="logo-bracket">/&gt;</span>
+  </a>
+  <ul class="nav-links" id="navLinks">
+    <li><a href="#home" class="nav-link active">Home</a></li>
+    <li><a href="#about" class="nav-link">About</a></li>
+    <li><a href="#skills" class="nav-link">Skills</a></li>
+    <li><a href="#projects" class="nav-link">Projects</a></li>
+    <li><a href="#contact" class="nav-link">Contact</a></li>
+    <li><a href="https://github.com/luciferofx" target="_blank" rel="noopener" class="nav-cta">GitHub ↗</a></li>
+  </ul>
+  <button class="nav-toggle" id="navToggle" aria-label="Toggle menu">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<!-- ============ HERO ============ -->
+<section class="hero" id="home">
+  <div class="hero-glow"></div>
+  <div class="hero-content">
+    <p class="hero-eyebrow" data-reveal>
+      <span class="pulse-dot"></span> Available for freelance & collaboration
+    </p>
+    <h1 class="hero-title">
+      <span class="line" data-reveal>NOT HERE</span>
+      <span class="line" data-reveal>TO <span class="gradient-text">FOLLOW.</span></span>
+      <span class="line" data-reveal>HERE TO <span class="gradient-text">BUILD.</span></span>
+    </h1>
+    <p class="hero-sub" data-reveal>
+      Full-Stack Developer · AI-Assisted Builder · IoT & Hardware Enthusiast
+    </p>
+    <p class="hero-desc" data-reveal>
+      I turn random ideas into working projects — from full-stack web apps and blockchain experiments
+      to autonomous robots and IoT ecosystems. I learn by building, breaking, and rebuilding.
+    </p>
+    <div class="hero-actions" data-reveal>
+      <a href="#projects" class="btn btn-primary">
+        <span>View Projects</span>
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+      </a>
+      <a href="mailto:luciferofx69@gmail.com" class="btn btn-ghost">Get in Touch</a>
+    </div>
+    <div class="hero-stats" data-reveal>
+      <div class="stat"><b class="counter" data-target="10">0</b><span>Projects Built</span></div>
+      <div class="stat"><b class="counter" data-target="8">0</b><span>Tech Stacks</span></div>
+      <div class="stat"><b class="counter" data-target="5">0</b><span>IoT Modules</span></div>
+    </div>
+  </div>
+  <div class="hero-scroll">
+    <span>scroll</span>
+    <div class="scroll-line"></div>
+  </div>
+</section>
+
+<!-- ============ MARQUEE ============ -->
+<div class="marquee">
+  <div class="marquee-track">
+    <span>REACT</span><span>✦</span><span>NODE.JS</span><span>✦</span><span>PYTHON</span><span>✦</span>
+    <span>ESP8266</span><span>✦</span><span>OPENCV</span><span>✦</span><span>FLUTTER</span><span>✦</span>
+    <span>MONGODB</span><span>✦</span><span>DOCKER</span><span>✦</span><span>ARDUINO</span><span>✦</span>
+    <span>NEXT.JS</span><span>✦</span><span>FIREBASE</span><span>✦</span>
+    <span>REACT</span><span>✦</span><span>NODE.JS</span><span>✦</span><span>PYTHON</span><span>✦</span>
+    <span>ESP8266</span><span>✦</span><span>OPENCV</span><span>✦</span><span>FLUTTER</span><span>✦</span>
+    <span>MONGODB</span><span>✦</span><span>DOCKER</span><span>✦</span><span>ARDUINO</span><span>✦</span>
+    <span>NEXT.JS</span><span>✦</span><span>FIREBASE</span><span>✦</span>
+  </div>
+</div>
+
+<!-- ============ ABOUT ============ -->
+<section class="section" id="about">
+  <div class="container">
+    <div class="section-head">
+      <span class="section-index">01</span>
+      <h2 class="section-title">The Person Behind the Code</h2>
+      <p class="section-kicker">// I learn by building. I break things to understand them.</p>
+    </div>
+    <div class="about-grid">
+      <div class="about-text" data-reveal>
+        <p>
+          I'm <strong>Raja</strong> — a tech enthusiast who enjoys turning random ideas into working projects.
+          Most of my learning happens hands-on: exploring new technologies, experimenting with tools,
+          building applications, fixing bugs, and figuring things out along the way.
+        </p>
+        <p>
+          I work fluently with AI tools as part of my workflow — from research and brainstorming to coding,
+          debugging, and improving ideas. I use them to work smarter, but I still believe in understanding,
+          testing, and taking responsibility for what I build.
+        </p>
+        <div class="about-tags">
+          <span>Software Development</span>
+          <span>AI Workflows</span>
+          <span>Cybersecurity</span>
+          <span>Product Building</span>
+        </div>
+      </div>
+      <div class="about-cards">
+        <div class="info-card" data-reveal>
+          <div class="info-icon">⚡</div>
+          <h4>Mindset</h4>
+          <p>Always learning. No shortcuts. Just progress.</p>
+        </div>
+        <div class="info-card" data-reveal>
+          <div class="info-icon">🛠</div>
+          <h4>Approach</h4>
+          <p>Think → Build → Break → Rebuild.</p>
+        </div>
+        <div class="info-card" data-reveal>
+          <div class="info-icon">🌐</div>
+          <h4>Range</h4>
+          <p>Web, mobile, AI, and embedded hardware.</p>
+        </div>
+        <div class="info-card" data-reveal>
+          <div class="info-icon">📍</div>
+          <h4>Based in</h4>
+          <p>India · Open to remote work.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ SKILLS ============ -->
+<section class="section section-alt" id="skills">
+  <div class="container">
+    <div class="section-head">
+      <span class="section-index">02</span>
+      <h2 class="section-title">The Toolbox</h2>
+      <p class="section-kicker">// A growing collection of technologies I work with.</p>
+    </div>
+
+    <div class="skills-grid">
+      <div class="skill-group" data-reveal>
+        <h3>Programming & Web</h3>
+        <div class="skill-bars">
+          <div class="skill-bar" data-skill="90"><span>JavaScript</span><div class="bar"><i></i></div></div>
+          <div class="skill-bar" data-skill="85"><span>Python</span><div class="bar"><i></i></div></div>
+          <div class="skill-bar" data-skill="80"><span>C++ / Arduino</span><div class="bar"><i></i></div></div>
+          <div class="skill-bar" data-skill="75"><span>Java</span><div class="bar"><i></i></div></div>
+          <div class="skill-bar" data-skill="70"><span>PHP · SQL</span><div class="bar"><i></i></div></div>
+        </div>
+      </div>
+
+      <div class="skill-group" data-reveal>
+        <h3>Frameworks & Backend</h3>
+        <div class="skill-bars">
+          <div class="skill-bar" data-skill="88"><span>React / Next.js</span><div class="bar"><i></i></div></div>
+          <div class="skill-bar" data-skill="82"><span>Node.js / Express</span><div class="bar"><i></i></div></div>
+          <div class="skill-bar" data-skill="78"><span>MongoDB / PostgreSQL</span><div class="bar"><i></i></div></div>
+          <div class="skill-bar" data-skill="72"><span>Firebase</span><div class="bar"><i></i></div></div>
+          <div class="skill-bar" data-skill="68"><span>Flutter</span><div class="bar"><i></i></div></div>
+        </div>
+      </div>
+
+      <div class="skill-group" data-reveal>
+        <h3>AI & Automation</h3>
+        <div class="skill-bars">
+          <div class="skill-bar" data-skill="85"><span>AI-Assisted Dev</span><div class="bar"><i></i></div></div>
+          <div class="skill-bar" data-skill="80"><span>Prompt Engineering</span><div class="bar"><i></i></div></div>
+          <div class="skill-bar" data-skill="70"><span>OpenCV / TensorFlow</span><div class="bar"><i></i></div></div>
+          <div class="skill-bar" data-skill="75"><span>Workflow Automation</span><div class="bar"><i></i></div></div>
+        </div>
+      </div>
+
+      <div class="skill-group" data-reveal>
+        <h3>Tools & Hardware</h3>
+        <div class="skill-bars">
+          <div class="skill-bar" data-skill="90"><span>Git / GitHub</span><div class="bar"><i></i></div></div>
+          <div class="skill-bar" data-skill="78"><span>Docker / Linux</span><div class="bar"><i></i></div></div>
+          <div class="skill-bar" data-skill="82"><span>Arduino / ESP8266</span><div class="bar"><i></i></div></div>
+          <div class="skill-bar" data-skill="70"><span>Figma / UI-UX</span><div class="bar"><i></i></div></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="tech-pills" data-reveal>
+      <span>JavaScript</span><span>Python</span><span>C++</span><span>Java</span><span>PHP</span>
+      <span>React</span><span>Next.js</span><span>Node.js</span><span>Express</span><span>Flutter</span>
+      <span>MongoDB</span><span>MySQL</span><span>PostgreSQL</span><span>Firebase</span><span>Docker</span>
+      <span>Arduino</span><span>ESP8266</span><span>OpenCV</span><span>Git</span><span>Linux</span>
+    </div>
+  </div>
+</section>
+
+<!-- ============ PROJECTS ============ -->
+<section class="section" id="projects">
+  <div class="container">
+    <div class="section-head">
+      <span class="section-index">03</span>
+      <h2 class="section-title">Things I've Built</h2>
+      <p class="section-kicker">// Ideas are cheap. Building is the real work.</p>
+    </div>
+
+    <div class="projects-grid">
+
+      <article class="project-card featured" data-reveal>
+        <div class="project-top">
+          <span class="project-badge">Flagship</span>
+          <span class="project-year">2024</span>
+        </div>
+        <h3>Project X — Hardware & AI Ecosystem</h3>
+        <p>Monorepo of 5 engineering modules: autonomous AI robot, Bluetooth 4WD rover, RFID army gate, IoT baby cradle, and WebSerial I2C flasher. Live cyberpunk portal.</p>
+        <div class="project-tech">
+          <span>C++</span><span>Python</span><span>OpenCV</span><span>ESP8266</span>
+        </div>
+        <div class="project-links">
+          <a href="https://luciferofx.github.io/projectxweb/" target="_blank" rel="noopener">Live Portal ↗</a>
+          <a href="https://github.com/luciferofx/projectxweb" target="_blank" rel="noopener">Source ↗</a>
+        </div>
+      </article>
+
+      <article class="project-card" data-reveal>
+        <div class="project-top"><span class="project-badge">Full-Stack</span></div>
+        <h3>JanPehchaan</h3>
+        <p>Unified citizen-service platform for household records, welfare applications, and duplicate-benefit detection.</p>
+        <div class="project-tech"><span>React</span><span>Node.js</span><span>PostgreSQL</span><span>Prisma</span></div>
+      </article>
+
+      <article class="project-card" data-reveal>
+        <div class="project-top"><span class="project-badge">SIH 2024</span></div>
+        <h3>Capacity Connect</h3>
+        <p>Digital capacity-building & learning management portal built around the SIH26075 problem statement.</p>
+        <div class="project-tech"><span>React</span><span>Node.js</span><span>MongoDB</span></div>
+      </article>
+
+      <article class="project-card" data-reveal>
+        <div class="project-top"><span class="project-badge">Mobile</span></div>
+        <h3>FluxPay</h3>
+        <p>Digital wallet with authentication, QR payments, and Cashfree financial-services integration.</p>
+        <div class="project-tech"><span>Flutter</span><span>Firebase</span><span>Cashfree</span></div>
+      </article>
+
+      <article class="project-card" data-reveal>
+        <div class="project-top"><span class="project-badge">Healthcare</span></div>
+        <h3>Medicway</h3>
+        <p>Healthcare platform concept with appointment booking and service management flows.</p>
+        <div class="project-tech"><span>React</span><span>Node.js</span><span>MongoDB</span></div>
+      </article>
+
+      <article class="project-card" data-reveal>
+        <div class="project-top"><span class="project-badge">Web3</span></div>
+        <h3>LuciChain</h3>
+        <p>Decentralized technology and blockchain exploration — wallet flow and web integration.</p>
+        <div class="project-tech"><span>Blockchain</span><span>Web Dev</span></div>
+        <div class="project-links">
+          <a href="https://github.com/luciferofx/LuciChain-decentralized" target="_blank" rel="noopener">Source ↗</a>
+        </div>
+      </article>
+
+      <article class="project-card" data-reveal>
+        <div class="project-top"><span class="project-badge">Fintech</span></div>
+        <h3>DhanSetu</h3>
+        <p>Digital-first loan application concept with a streamlined approval journey.</p>
+        <div class="project-tech"><span>React</span><span>Node.js</span></div>
+        <div class="project-links">
+          <a href="https://github.com/luciferofx/DhanSetu-Loan-app-" target="_blank" rel="noopener">Source ↗</a>
+        </div>
+      </article>
+
+      <article class="project-card" data-reveal>
+        <div class="project-top"><span class="project-badge">E-Commerce</span></div>
+        <h3>Gaming Voucher Platform</h3>
+        <p>E-commerce experience for buying and redeeming gaming vouchers.</p>
+        <div class="project-tech"><span>PHP</span><span>MySQL</span><span>JS</span></div>
+        <div class="project-links">
+          <a href="https://github.com/luciferofx/ecommerce-gaming-voucher-platform" target="_blank" rel="noopener">Source ↗</a>
+        </div>
+      </article>
+
+      <article class="project-card" data-reveal>
+        <div class="project-top"><span class="project-badge">Desktop</span></div>
+        <h3>Python Screen Recorder</h3>
+        <p>Lightweight screen recording utility built with Python.</p>
+        <div class="project-tech"><span>Python</span><span>Tkinter</span></div>
+        <div class="project-links">
+          <a href="https://github.com/luciferofx/Python-Screen-Recorder" target="_blank" rel="noopener">Source ↗</a>
+        </div>
+      </article>
+
+    </div>
+
+    <div class="projects-cta" data-reveal>
+      <a href="https://github.com/luciferofx?tab=repositories" target="_blank" rel="noopener" class="btn btn-primary">
+        Explore All Projects ↗
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FUN GAME ============ -->
+<section class="section section-alt" id="game">
+  <div class="container">
+    <div class="section-head">
+      <span class="section-index">04</span>
+      <h2 class="section-title">A Little Break?</h2>
+      <p class="section-kicker">// Catch the Spark — test your reflexes.</p>
+    </div>
+    <div class="game-wrap" data-reveal>
+      <div class="game-hud">
+        <div>Score: <b id="gameScore">0</b></div>
+        <div>Time: <b id="gameTime">20</b>s</div>
+        <button class="btn btn-small" id="gameStart">Start</button>
+      </div>
+      <div class="game-board" id="gameBoard">
+        <div class="game-overlay" id="gameOverlay">
+          <p>▶ Click Start — catch the spark before time runs out.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ CONTACT ============ -->
+<section class="section" id="contact">
+  <div class="container">
+    <div class="section-head">
+      <span class="section-index">05</span>
+      <h2 class="section-title">Let's Build Something</h2>
+      <p class="section-kicker">// No shortcuts. No finished story. Just progress.</p>
+    </div>
+    <div class="contact-grid">
+      <div class="contact-left" data-reveal>
+        <h3>Got an idea? Let's turn it into reality.</h3>
+        <p>I'm open to freelance projects, collaborations, and interesting conversations about tech, AI, and hardware. Drop a message — I reply fast.</p>
+        <div class="contact-info">
+          <a href="mailto:luciferofx69@gmail.com" class="contact-item">
+            <span class="ci-icon">✉</span><div><small>Email</small><strong>luciferofx69@gmail.com</strong></div>
+          </a>
+          <a href="https://github.com/luciferofx" target="_blank" rel="noopener" class="contact-item">
+            <span class="ci-icon">◆</span><div><small>GitHub</small><strong>github.com/luciferofx</strong></div>
+          </a>
+          <a href="https://luciferofx.github.io/luciferofx/" target="_blank" rel="noopener" class="contact-item">
+            <span class="ci-icon">◆</span><div><small>Portfolio</small><strong>luciferofx.github.io</strong></div>
+          </a>
+        </div>
+      </div>
+      <form class="contact-form" id="contactForm" data-reveal>
+        <div class="form-row">
+          <label>Name<input type="text" name="name" required placeholder="Your name" /></label>
+          <label>Email<input type="email" name="email" required placeholder="you@email.com" /></label>
+        </div>
+        <label>Message<textarea name="message" rows="5" required placeholder="Tell me about your idea..."></textarea></label>
+        <button type="submit" class="btn btn-primary btn-full">Send Message →</button>
+        <p class="form-status" id="formStatus"></p>
+      </form>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FOOTER ============ -->
+<footer class="footer">
+  <div class="container footer-inner">
+    <div class="footer-logo">&lt;<span>RS</span>/&gt;</div>
+    <p>© 2024 Raja Sharma · Built with intent, not templates.</p>
+    <div class="footer-links">
+      <a href="https://github.com/luciferofx" target="_blank" rel="noopener">GitHub</a>
+      <a href="mailto:luciferofx69@gmail.com">Email</a>
+      <a href="#home">Top ↑</a>
+    </div>
+  </div>
+</footer>
+
+<script src="js/main.js"></script>
+</body>
+</html>
