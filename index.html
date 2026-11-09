@@ -15,6 +15,116 @@
 </head>
 <body>
 
+<!-- ============ PRELOADER ============ -->
+<div class="preloader" id="preloader">
+  <div class="preloader-grid"></div>
+  <div class="preloader-scanline"></div>
+  <div class="preloader-inner">
+    <div class="preloader-logo">
+      <span class="pl-bracket">&lt;</span>RS<span class="pl-bracket">/&gt;</span>
+    </div>
+    <div class="preloader-terminal">
+      <div class="pl-line" data-line="1"><span class="pl-prompt">$</span> booting raja.sharma<span class="pl-dots"></span></div>
+      <div class="pl-line" data-line="2"><span class="pl-prompt">$</span> loading modules <span class="pl-ok">[ OK ]</span></div>
+      <div class="pl-line" data-line="3"><span class="pl-prompt">$</span> compiling particles <span class="pl-ok">[ OK ]</span></div>
+      <div class="pl-line" data-line="4"><span class="pl-prompt">$</span> initializing projects <span class="pl-ok">[ OK ]</span></div>
+      <div class="pl-line" data-line="5"><span class="pl-prompt">$</span> ready_</div>
+    </div>
+    <div class="preloader-bar-wrap">
+      <div class="preloader-bar" id="preloaderBar"></div>
+    </div>
+    <div class="preloader-counter">
+      <span id="preloaderPercent">0</span><span class="pl-pct-sign">%</span>
+    </div>
+  </div>
+  <div class="preloader-hint">// press esc to skip</div>
+</div>
+
+<!-- ============ SCREENSHOT BLACKOUT ============ -->
+<div id="blackout"></div>
+
+<!-- ============ SUCCESS SCREEN ============ -->
+<div class="success-screen" id="successScreen">
+  <div class="success-grid-bg"></div>
+  <div class="success-inner">
+    <div class="success-check">
+      <svg viewBox="0 0 52 52" class="check-svg">
+        <circle class="check-circle" cx="26" cy="26" r="24" fill="none" />
+        <path class="check-mark" fill="none" d="M14 27 L23 36 L39 18" />
+      </svg>
+    </div>
+    <h2 class="success-title">THANK <span class="gradient-text">YOU</span></h2>
+    <p class="success-sub">Message received successfully.</p>
+    <p class="success-msg">We'll touch you as soon as possible.</p>
+    <div class="success-loading">
+      <div class="success-bar"><i></i></div>
+      <p>Redirecting you back in <span id="successCountdown">4</span>s<span class="success-dots"></span></p>
+    </div>
+  </div>
+</div>
+
+<!-- ============ PROJECT MODAL ============ -->
+<div class="project-modal" id="projectModal" aria-hidden="true">
+  <div class="modal-backdrop" id="modalBackdrop"></div>
+  <div class="modal-content" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+
+    <button class="modal-close" id="modalClose" aria-label="Close">
+      <span></span><span></span>
+    </button>
+
+    <!-- Hologram Side -->
+    <div class="modal-hologram">
+      <div class="holo-stage">
+        <div class="holo-ring"></div>
+        <div class="holo-ring holo-ring-2"></div>
+        <div class="holo-ring holo-ring-3"></div>
+        <div class="holo-core">
+          <div class="holo-cube">
+            <div class="holo-face holo-front"></div>
+            <div class="holo-face holo-back"></div>
+            <div class="holo-face holo-left"></div>
+            <div class="holo-face holo-right"></div>
+            <div class="holo-face holo-top"></div>
+            <div class="holo-face holo-bottom"></div>
+          </div>
+        </div>
+        <div class="holo-scan"></div>
+        <div class="holo-particles">
+          <span></span><span></span><span></span><span></span><span></span>
+          <span></span><span></span><span></span><span></span><span></span>
+        </div>
+        <div class="holo-label">● LIVE HOLOGRAM</div>
+      </div>
+    </div>
+
+    <!-- Details Side -->
+    <div class="modal-info">
+      <div class="modal-top">
+        <span class="project-badge" id="modalBadge">Project</span>
+        <span class="project-year" id="modalYear">2024</span>
+      </div>
+
+      <h2 class="modal-title" id="modalTitle">Project Name</h2>
+      <p class="modal-desc" id="modalDesc">Description goes here.</p>
+
+      <div class="modal-section">
+        <h4>// Tech Stack</h4>
+        <div class="project-tech" id="modalTech"></div>
+      </div>
+
+      <div class="modal-section" id="modalFeatureSection">
+        <h4>// Key Highlights</h4>
+        <ul class="modal-features" id="modalFeatures"></ul>
+      </div>
+
+      <div class="modal-actions" id="modalActions">
+        <!-- Links injected by JS -->
+      </div>
+    </div>
+
+  </div>
+</div>
+
 <!-- ============ CUSTOM CURSOR ============ -->
 <div class="cursor-dot" id="cursorDot"></div>
 <div class="cursor-ring" id="cursorRing"></div>
@@ -221,7 +331,14 @@
 
     <div class="projects-grid">
 
-      <article class="project-card featured" data-reveal>
+      <article class="project-card featured"
+        data-title="Project X — Hardware & AI Ecosystem"
+        data-badge="Flagship"
+        data-year="2024"
+        data-desc="A monorepo of 5 engineering modules that combine hardware, IoT, and AI into one cohesive ecosystem. Features an autonomous AI robot with OpenCV facial recognition, a Bluetooth 4WD rover, an RFID-authenticated army gate, an IoT baby cradle with browser controls, and a WebSerial I2C flasher — all documented through a cyberpunk-themed web portal."
+        data-tech="C++,Python,OpenCV,ESP8266,Arduino,WebSerial"
+        data-features="Autonomous AI robot with facial recognition|Bluetooth 4WD rover with dual motor drivers|RFID army gate with servo actuation|IoT baby cradle with browser control|WebSerial I2C diagnostic + AVR flashing tool|Live cyberpunk documentation portal"
+        data-links="Live Portal|https://luciferofx.github.io/projectxweb/;Source Code|https://github.com/luciferofx/projectxweb">
         <div class="project-top">
           <span class="project-badge">Flagship</span>
           <span class="project-year">2024</span>
@@ -237,35 +354,70 @@
         </div>
       </article>
 
-      <article class="project-card" data-reveal>
+      <article class="project-card"
+        data-title="JanPehchaan"
+        data-badge="Full-Stack"
+        data-year="2024"
+        data-desc="A unified citizen-service platform designed to streamline household records, welfare application processing, and automated duplicate-benefit detection. Built to eliminate friction in government service delivery and reduce fraud through intelligent data validation."
+        data-tech="React,Node.js,PostgreSQL,Prisma"
+        data-features="Unified household record management|Welfare application processing pipeline|Automated duplicate-benefit detection|Role-based access for citizens and admins|PostgreSQL-backed with Prisma ORM"
+        data-links="">
         <div class="project-top"><span class="project-badge">Full-Stack</span></div>
         <h3>JanPehchaan</h3>
         <p>Unified citizen-service platform for household records, welfare applications, and duplicate-benefit detection.</p>
         <div class="project-tech"><span>React</span><span>Node.js</span><span>PostgreSQL</span><span>Prisma</span></div>
       </article>
 
-      <article class="project-card" data-reveal>
+      <article class="project-card"
+        data-title="Capacity Connect"
+        data-badge="SIH 2024"
+        data-year="2024"
+        data-desc="A digital capacity-building and learning management portal built around the Smart India Hackathon 2024 problem statement SIH26075. Designed to connect learners with skill-development resources and provide institutions with tools to manage programs and track outcomes."
+        data-tech="React,Node.js,MongoDB"
+        data-features="Learning management system with course tracking|Institution dashboards for program management|Learner progress analytics|SIH 2024 problem statement SIH26075 solution"
+        data-links="">
         <div class="project-top"><span class="project-badge">SIH 2024</span></div>
         <h3>Capacity Connect</h3>
         <p>Digital capacity-building & learning management portal built around the SIH26075 problem statement.</p>
         <div class="project-tech"><span>React</span><span>Node.js</span><span>MongoDB</span></div>
       </article>
 
-      <article class="project-card" data-reveal>
+      <article class="project-card"
+        data-title="FluxPay"
+        data-badge="Mobile"
+        data-year="2024"
+        data-desc="A mobile-first digital wallet app with secure authentication, QR-code based payments, and full Cashfree financial-services integration. Built with Flutter for cross-platform deployment and Firebase for real-time sync and user management."
+        data-tech="Flutter,Firebase,Cashfree"
+        data-features="Secure user authentication with Firebase|QR-code based instant payments|Cashfree payment gateway integration|Transaction history and wallet balance|Cross-platform Flutter app"
+        data-links="">
         <div class="project-top"><span class="project-badge">Mobile</span></div>
         <h3>FluxPay</h3>
         <p>Digital wallet with authentication, QR payments, and Cashfree financial-services integration.</p>
         <div class="project-tech"><span>Flutter</span><span>Firebase</span><span>Cashfree</span></div>
       </article>
 
-      <article class="project-card" data-reveal>
+      <article class="project-card"
+        data-title="Medicway"
+        data-badge="Healthcare"
+        data-year="2024"
+        data-desc="A healthcare platform concept focused on digitizing patient journeys — from appointment booking to service management. Designed to reduce friction between patients and providers with streamlined scheduling and clear service flows."
+        data-tech="React,Node.js,MongoDB"
+        data-features="Appointment booking system|Service management flows for providers|Patient dashboard|Healthcare service catalog|Notification reminders"
+        data-links="">
         <div class="project-top"><span class="project-badge">Healthcare</span></div>
         <h3>Medicway</h3>
         <p>Healthcare platform concept with appointment booking and service management flows.</p>
         <div class="project-tech"><span>React</span><span>Node.js</span><span>MongoDB</span></div>
       </article>
 
-      <article class="project-card" data-reveal>
+      <article class="project-card"
+        data-title="LuciChain"
+        data-badge="Web3"
+        data-year="2024"
+        data-desc="A decentralized technology and blockchain exploration project — experimenting with wallet flows, smart-contract interactions, and web integration. Built as a learning vehicle for understanding how decentralized apps interact with user wallets."
+        data-tech="Blockchain,Web3,JavaScript"
+        data-features="Wallet connection flow|Blockchain interaction experiments|Web integration with decentralized storage|Decentralized app prototype"
+        data-links="Source Code|https://github.com/luciferofx/LuciChain-decentralized">
         <div class="project-top"><span class="project-badge">Web3</span></div>
         <h3>LuciChain</h3>
         <p>Decentralized technology and blockchain exploration — wallet flow and web integration.</p>
@@ -275,7 +427,14 @@
         </div>
       </article>
 
-      <article class="project-card" data-reveal>
+      <article class="project-card"
+        data-title="DhanSetu"
+        data-badge="Fintech"
+        data-year="2024"
+        data-desc="A digital-first loan application concept with a streamlined approval journey. Designed to reduce the friction between applicants and lenders through a clean, guided application flow and faster decisioning."
+        data-tech="React,Node.js"
+        data-features="Guided loan application flow|Document upload and verification|Streamlined approval journey|Applicant dashboard"
+        data-links="Source Code|https://github.com/luciferofx/DhanSetu-Loan-app-">
         <div class="project-top"><span class="project-badge">Fintech</span></div>
         <h3>DhanSetu</h3>
         <p>Digital-first loan application concept with a streamlined approval journey.</p>
@@ -285,7 +444,14 @@
         </div>
       </article>
 
-      <article class="project-card" data-reveal>
+      <article class="project-card"
+        data-title="Gaming Voucher Platform"
+        data-badge="E-Commerce"
+        data-year="2024"
+        data-desc="A full e-commerce experience for buying and redeeming gaming vouchers. Built with PHP and MySQL, featuring a product catalog, cart, checkout flow, and voucher redemption system."
+        data-tech="PHP,MySQL,JavaScript"
+        data-features="Product catalog for gaming vouchers|Shopping cart and checkout|Voucher redemption system|Admin panel for inventory"
+        data-links="Source Code|https://github.com/luciferofx/ecommerce-gaming-voucher-platform">
         <div class="project-top"><span class="project-badge">E-Commerce</span></div>
         <h3>Gaming Voucher Platform</h3>
         <p>E-commerce experience for buying and redeeming gaming vouchers.</p>
@@ -295,7 +461,14 @@
         </div>
       </article>
 
-      <article class="project-card" data-reveal>
+      <article class="project-card"
+        data-title="Python Screen Recorder"
+        data-badge="Desktop"
+        data-year="2024"
+        data-desc="A lightweight, cross-platform screen recording utility built with Python and Tkinter. Simple UI, low system overhead, and easy export to standard video formats."
+        data-tech="Python,Tkinter"
+        data-features="One-click screen recording|Lightweight low-overhead capture|Standard video format export|Simple Tkinter interface"
+        data-links="Source Code|https://github.com/luciferofx/Python-Screen-Recorder">
         <div class="project-top"><span class="project-badge">Desktop</span></div>
         <h3>Python Screen Recorder</h3>
         <p>Lightweight screen recording utility built with Python.</p>
@@ -303,6 +476,62 @@
         <div class="project-links">
           <a href="https://github.com/luciferofx/Python-Screen-Recorder" target="_blank" rel="noopener">Source ↗</a>
         </div>
+      </article>
+
+      <article class="project-card"
+        data-title="Autonomous AI Robot & 4WD Remote Rover"
+        data-badge="Hardware"
+        data-year="2024"
+        data-desc="A Wi-Fi-controlled autonomous robot featuring OpenCV-driven facial recognition and I2C LCD telemetry for live status. Paired with a four-wheel rover prototype using Arduino Nano, HC-05 Bluetooth, and dual L298N motor drivers for smooth omnidirectional movement."
+        data-tech="C++,Python,OpenCV,ESP8266,Arduino,Bluetooth"
+        data-features="OpenCV facial recognition|Wi-Fi remote control|I2C LCD live telemetry|4WD rover with HC-05 Bluetooth|Dual L298N motor drivers|Arduino Nano controller"
+        data-links="">
+        <div class="project-top"><span class="project-badge">Hardware</span></div>
+        <h3>Autonomous AI Robot & 4WD Remote Rover</h3>
+        <p>Wi-Fi-controlled robot with OpenCV facial recognition and I2C LCD telemetry. Four-wheel rover with Arduino Nano, HC-05 Bluetooth, dual L298N drivers.</p>
+        <div class="project-tech"><span>C++</span><span>Python</span><span>OpenCV</span><span>ESP8266</span><span>Arduino</span></div>
+      </article>
+
+      <article class="project-card"
+        data-title="RFID Army Gate & IoT Baby Cradle"
+        data-badge="IoT"
+        data-year="2024"
+        data-desc="A collection of IoT hardware prototypes: an RFID-authenticated barrier gate with servo actuation and feedback, a browser-controlled IoT motor speed manager for a smart baby cradle, and a WebSerial diagnostic tool for I2C scanning and AVR firmware flashing."
+        data-tech="Arduino Mega,ESP8266,RFID,WebSerial API,PWM"
+        data-features="RFID-authenticated barrier gate|Servo actuation with status feedback|Browser-controlled motor speed manager|WebSerial I2C scanner|AVR firmware flashing tool|Arduino Mega + ESP8266 stack"
+        data-links="">
+        <div class="project-top"><span class="project-badge">IoT</span></div>
+        <h3>RFID Army Gate & IoT Baby Cradle</h3>
+        <p>RFID-authenticated barrier with servo actuation. Browser-controlled IoT motor speed manager for a smart cradle. WebSerial diagnostic tool for I2C scanning and AVR firmware flashing.</p>
+        <div class="project-tech"><span>Arduino Mega</span><span>ESP8266</span><span>RFID</span><span>WebSerial API</span></div>
+      </article>
+
+      <article class="project-card"
+        data-title="Task Earning App"
+        data-badge="Utility"
+        data-year="2024"
+        data-desc="A task management platform where users complete tasks to earn rewards. Currently at the concept and prototype stage — designed to gamify productivity through a rewards-based system."
+        data-tech="React,Node.js,MongoDB"
+        data-features="Task management system|Reward earning mechanism|User dashboard|Task history and analytics"
+        data-links="">
+        <div class="project-top"><span class="project-badge">Utility</span></div>
+        <h3>Task Earning App</h3>
+        <p>Task management platform where users complete tasks to earn rewards. Concept and prototype stage.</p>
+        <div class="project-tech"><span>React</span><span>Node.js</span><span>MongoDB</span></div>
+      </article>
+
+      <article class="project-card"
+        data-title="QuickMax"
+        data-badge="Utility"
+        data-year="2024"
+        data-desc="A performance utility application for system optimization and quick actions. Built with Python and Tkinter for a lightweight, responsive experience on Windows and Linux."
+        data-tech="Python,Tkinter"
+        data-features="System optimization tools|Quick action shortcuts|Lightweight Tkinter UI|Cross-platform support"
+        data-links="">
+        <div class="project-top"><span class="project-badge">Utility</span></div>
+        <h3>QuickMax</h3>
+        <p>Performance utility application for system optimization and quick actions.</p>
+        <div class="project-tech"><span>Python</span><span>Tkinter</span></div>
       </article>
 
     </div>
@@ -362,13 +591,19 @@
           </a>
         </div>
       </div>
-      <form class="contact-form" id="contactForm" data-reveal>
+      <form class="contact-form" id="contactForm" data-reveal
+            action="https://formspree.io/f/xzeelepn"
+            method="POST">
         <div class="form-row">
           <label>Name<input type="text" name="name" required placeholder="Your name" /></label>
           <label>Email<input type="email" name="email" required placeholder="you@email.com" /></label>
         </div>
         <label>Message<textarea name="message" rows="5" required placeholder="Tell me about your idea..."></textarea></label>
-        <button type="submit" class="btn btn-primary btn-full">Send Message →</button>
+        <input type="text" name="_gotcha" style="display:none" tabindex="-1" autocomplete="off" />
+        <button type="submit" class="btn btn-primary btn-full" id="formSubmitBtn">
+          <span class="btn-label">Send Message →</span>
+          <span class="btn-spinner" style="display:none">⏳ Sending...</span>
+        </button>
         <p class="form-status" id="formStatus"></p>
       </form>
     </div>
