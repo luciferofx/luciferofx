@@ -5,6 +5,15 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <meta name="description" content="Raja Sharma — Full-Stack Developer, AI-Assisted Builder, IoT & Hardware Enthusiast. Building the future, one circuit at a time." />
 <meta name="theme-color" content="#080808" />
+<meta name="author" content="Raja Sharma" />
+<meta name="robots" content="index, follow" />
+<meta property="og:title" content="Raja Sharma — Developer & Builder" />
+<meta property="og:description" content="Full-Stack Developer, AI-Assisted Builder, IoT & Hardware Enthusiast. Building the future, one circuit at a time." />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="https://luciferofx.github.io/luciferofx/" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="Raja Sharma — Developer & Builder" />
+<meta name="twitter:description" content="Full-Stack Developer, AI-Assisted Builder, IoT & Hardware Enthusiast." />
 <title>Raja Sharma — Developer & Builder</title>
 
 <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -15,15 +24,14 @@
 </head>
 <body>
 
-<!-- ============ PRELOADER ============ -->
-<div class="preloader" id="preloader">
+<div class="preloader" id="preloader" aria-hidden="true">
   <div class="preloader-grid"></div>
   <div class="preloader-scanline"></div>
   <div class="preloader-inner">
     <div class="preloader-logo">
       <span class="pl-bracket">&lt;</span>RS<span class="pl-bracket">/&gt;</span>
     </div>
-    <div class="preloader-terminal">
+    <div class="preloader-terminal" role="status" aria-live="polite">
       <div class="pl-line" data-line="1"><span class="pl-prompt">$</span> booting raja.sharma<span class="pl-dots"></span></div>
       <div class="pl-line" data-line="2"><span class="pl-prompt">$</span> loading modules <span class="pl-ok">[ OK ]</span></div>
       <div class="pl-line" data-line="3"><span class="pl-prompt">$</span> compiling particles <span class="pl-ok">[ OK ]</span></div>
@@ -40,20 +48,18 @@
   <div class="preloader-hint">// press esc to skip</div>
 </div>
 
-<!-- ============ SCREENSHOT BLACKOUT ============ -->
-<div id="blackout"></div>
+<div id="blackout" aria-hidden="true"></div>
 
-<!-- ============ SUCCESS SCREEN ============ -->
-<div class="success-screen" id="successScreen">
+<div class="success-screen" id="successScreen" aria-hidden="true" role="dialog" aria-labelledby="successTitle">
   <div class="success-grid-bg"></div>
   <div class="success-inner">
     <div class="success-check">
-      <svg viewBox="0 0 52 52" class="check-svg">
+      <svg viewBox="0 0 52 52" class="check-svg" aria-hidden="true" focusable="false">
         <circle class="check-circle" cx="26" cy="26" r="24" fill="none" />
         <path class="check-mark" fill="none" d="M14 27 L23 36 L39 18" />
       </svg>
     </div>
-    <h2 class="success-title">THANK <span class="gradient-text">YOU</span></h2>
+    <h2 class="success-title" id="successTitle">THANK <span class="gradient-text">YOU</span></h2>
     <p class="success-sub">Message received successfully.</p>
     <p class="success-msg">We'll touch you as soon as possible.</p>
     <div class="success-loading">
@@ -63,17 +69,15 @@
   </div>
 </div>
 
-<!-- ============ PROJECT MODAL ============ -->
 <div class="project-modal" id="projectModal" aria-hidden="true">
   <div class="modal-backdrop" id="modalBackdrop"></div>
   <div class="modal-content" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
 
-    <button class="modal-close" id="modalClose" aria-label="Close">
+    <button class="modal-close" id="modalClose" aria-label="Close project details" type="button">
       <span></span><span></span>
     </button>
 
-    <!-- Hologram Side -->
-    <div class="modal-hologram">
+    <div class="modal-hologram" aria-hidden="true">
       <div class="holo-stage">
         <div class="holo-ring"></div>
         <div class="holo-ring holo-ring-2"></div>
@@ -97,7 +101,6 @@
       </div>
     </div>
 
-    <!-- Details Side -->
     <div class="modal-info">
       <div class="modal-top">
         <span class="project-badge" id="modalBadge">Project</span>
@@ -117,56 +120,60 @@
         <ul class="modal-features" id="modalFeatures"></ul>
       </div>
 
-      <div class="modal-actions" id="modalActions">
-        <!-- Links injected by JS -->
-      </div>
+      <div class="modal-actions" id="modalActions"></div>
     </div>
 
   </div>
 </div>
 
-<!-- ============ CUSTOM CURSOR ============ -->
-<div class="cursor-dot" id="cursorDot"></div>
-<div class="cursor-ring" id="cursorRing"></div>
+<div class="cursor-dot" id="cursorDot" aria-hidden="true"></div>
+<div class="cursor-ring" id="cursorRing" aria-hidden="true"></div>
 
-<!-- ============ SCROLL PROGRESS ============ -->
-<div class="scroll-progress" id="scrollProgress"></div>
+<div class="scroll-progress" id="scrollProgress" aria-hidden="true"></div>
 
-<!-- ============ PARTICLE CANVAS BG ============ -->
-<canvas id="bgCanvas"></canvas>
+<canvas id="bgCanvas" aria-hidden="true"></canvas>
 
-<!-- ============ NAVBAR ============ -->
-<nav class="nav" id="nav">
-  <a href="#home" class="nav-logo">
-    <span class="logo-bracket">&lt;</span>RS<span class="logo-bracket">/&gt;</span>
-  </a>
-  <ul class="nav-links" id="navLinks">
-    <li><a href="#home" class="nav-link active">Home</a></li>
-    <li><a href="#about" class="nav-link">About</a></li>
-    <li><a href="#skills" class="nav-link">Skills</a></li>
-    <li><a href="#projects" class="nav-link">Projects</a></li>
-    <li><a href="#contact" class="nav-link">Contact</a></li>
-    <li><a href="https://github.com/luciferofx" target="_blank" rel="noopener" class="nav-cta">GitHub ↗</a></li>
-  </ul>
-  <button class="nav-toggle" id="navToggle" aria-label="Toggle menu">
-    <span></span><span></span><span></span>
-  </button>
-</nav>
+<header>
+  <nav class="nav" id="nav" aria-label="Main navigation">
+    <a href="#home" class="nav-logo" aria-label="Raja Sharma home">
+      <span class="logo-bracket" aria-hidden="true">&lt;</span>RS<span class="logo-bracket" aria-hidden="true">/&gt;</span>
+    </a>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="#home" class="nav-link active">Home</a></li>
+      <li><a href="#about" class="nav-link">About</a></li>
+      <li><a href="#skills" class="nav-link">Skills</a></li>
+      <li><a href="#projects" class="nav-link">Projects</a></li>
+      <li><a href="#contact" class="nav-link">Contact</a></li>
+      <li>
+        <a href="https://github.com/luciferofx"
+           target="_blank"
+           rel="noopener noreferrer"
+           class="nav-cta">
+          GitHub ↗
+        </a>
+      </li>
+    </ul>
+    <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="navLinks" type="button">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+</header>
 
-<!-- ============ HERO ============ -->
-<section class="hero" id="home">
-  <div class="hero-glow"></div>
+<main>
+
+<section class="hero" id="home" aria-labelledby="heroTitle">
+  <div class="hero-glow" aria-hidden="true"></div>
   <div class="hero-content">
     <p class="hero-eyebrow" data-reveal>
-      <span class="pulse-dot"></span> Available for freelance & collaboration
+      <span class="pulse-dot" aria-hidden="true"></span> Available for freelance &amp; collaboration
     </p>
-    <h1 class="hero-title">
+    <h1 class="hero-title" id="heroTitle">
       <span class="line" data-reveal>NOT HERE</span>
       <span class="line" data-reveal>TO <span class="gradient-text">FOLLOW.</span></span>
       <span class="line" data-reveal>HERE TO <span class="gradient-text">BUILD.</span></span>
     </h1>
     <p class="hero-sub" data-reveal>
-      Full-Stack Developer · AI-Assisted Builder · IoT & Hardware Enthusiast
+      Full-Stack Developer · AI-Assisted Builder · IoT &amp; Hardware Enthusiast
     </p>
     <p class="hero-desc" data-reveal>
       I turn random ideas into working projects — from full-stack web apps and blockchain experiments
@@ -175,7 +182,7 @@
     <div class="hero-actions" data-reveal>
       <a href="#projects" class="btn btn-primary">
         <span>View Projects</span>
-        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true" focusable="false"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
       </a>
       <a href="mailto:luciferofx69@gmail.com" class="btn btn-ghost">Get in Touch</a>
     </div>
@@ -185,14 +192,13 @@
       <div class="stat"><b class="counter" data-target="5">0</b><span>IoT Modules</span></div>
     </div>
   </div>
-  <div class="hero-scroll">
+  <div class="hero-scroll" aria-hidden="true">
     <span>scroll</span>
     <div class="scroll-line"></div>
   </div>
 </section>
 
-<!-- ============ MARQUEE ============ -->
-<div class="marquee">
+<div class="marquee" aria-hidden="true">
   <div class="marquee-track">
     <span>REACT</span><span>✦</span><span>NODE.JS</span><span>✦</span><span>PYTHON</span><span>✦</span>
     <span>ESP8266</span><span>✦</span><span>OPENCV</span><span>✦</span><span>FLUTTER</span><span>✦</span>
@@ -205,12 +211,11 @@
   </div>
 </div>
 
-<!-- ============ ABOUT ============ -->
-<section class="section" id="about">
+<section class="section" id="about" aria-labelledby="aboutTitle">
   <div class="container">
     <div class="section-head">
-      <span class="section-index">01</span>
-      <h2 class="section-title">The Person Behind the Code</h2>
+      <span class="section-index" aria-hidden="true">01</span>
+      <h2 class="section-title" id="aboutTitle">The Person Behind the Code</h2>
       <p class="section-kicker">// I learn by building. I break things to understand them.</p>
     </div>
     <div class="about-grid">
@@ -234,23 +239,23 @@
       </div>
       <div class="about-cards">
         <div class="info-card" data-reveal>
-          <div class="info-icon">⚡</div>
-          <h4>Mindset</h4>
+          <div class="info-icon" aria-hidden="true">⚡</div>
+          <h3>Mindset</h3>
           <p>Always learning. No shortcuts. Just progress.</p>
         </div>
         <div class="info-card" data-reveal>
-          <div class="info-icon">🛠</div>
-          <h4>Approach</h4>
+          <div class="info-icon" aria-hidden="true">🛠</div>
+          <h3>Approach</h3>
           <p>Think → Build → Break → Rebuild.</p>
         </div>
         <div class="info-card" data-reveal>
-          <div class="info-icon">🌐</div>
-          <h4>Range</h4>
+          <div class="info-icon" aria-hidden="true">🌐</div>
+          <h3>Range</h3>
           <p>Web, mobile, AI, and embedded hardware.</p>
         </div>
         <div class="info-card" data-reveal>
-          <div class="info-icon">📍</div>
-          <h4>Based in</h4>
+          <div class="info-icon" aria-hidden="true">📍</div>
+          <h3>Based in</h3>
           <p>India · Open to remote work.</p>
         </div>
       </div>
@@ -258,18 +263,17 @@
   </div>
 </section>
 
-<!-- ============ SKILLS ============ -->
-<section class="section section-alt" id="skills">
+<section class="section section-alt" id="skills" aria-labelledby="skillsTitle">
   <div class="container">
     <div class="section-head">
-      <span class="section-index">02</span>
-      <h2 class="section-title">The Toolbox</h2>
+      <span class="section-index" aria-hidden="true">02</span>
+      <h2 class="section-title" id="skillsTitle">The Toolbox</h2>
       <p class="section-kicker">// A growing collection of technologies I work with.</p>
     </div>
 
     <div class="skills-grid">
       <div class="skill-group" data-reveal>
-        <h3>Programming & Web</h3>
+        <h3>Programming &amp; Web</h3>
         <div class="skill-bars">
           <div class="skill-bar" data-skill="90"><span>JavaScript</span><div class="bar"><i></i></div></div>
           <div class="skill-bar" data-skill="85"><span>Python</span><div class="bar"><i></i></div></div>
@@ -280,7 +284,7 @@
       </div>
 
       <div class="skill-group" data-reveal>
-        <h3>Frameworks & Backend</h3>
+        <h3>Frameworks &amp; Backend</h3>
         <div class="skill-bars">
           <div class="skill-bar" data-skill="88"><span>React / Next.js</span><div class="bar"><i></i></div></div>
           <div class="skill-bar" data-skill="82"><span>Node.js / Express</span><div class="bar"><i></i></div></div>
@@ -291,7 +295,7 @@
       </div>
 
       <div class="skill-group" data-reveal>
-        <h3>AI & Automation</h3>
+        <h3>AI &amp; Automation</h3>
         <div class="skill-bars">
           <div class="skill-bar" data-skill="85"><span>AI-Assisted Dev</span><div class="bar"><i></i></div></div>
           <div class="skill-bar" data-skill="80"><span>Prompt Engineering</span><div class="bar"><i></i></div></div>
@@ -301,7 +305,7 @@
       </div>
 
       <div class="skill-group" data-reveal>
-        <h3>Tools & Hardware</h3>
+        <h3>Tools &amp; Hardware</h3>
         <div class="skill-bars">
           <div class="skill-bar" data-skill="90"><span>Git / GitHub</span><div class="bar"><i></i></div></div>
           <div class="skill-bar" data-skill="78"><span>Docker / Linux</span><div class="bar"><i></i></div></div>
@@ -320,12 +324,11 @@
   </div>
 </section>
 
-<!-- ============ PROJECTS ============ -->
-<section class="section" id="projects">
+<section class="section" id="projects" aria-labelledby="projectsTitle">
   <div class="container">
     <div class="section-head">
-      <span class="section-index">03</span>
-      <h2 class="section-title">Things I've Built</h2>
+      <span class="section-index" aria-hidden="true">03</span>
+      <h2 class="section-title" id="projectsTitle">Things I've Built</h2>
       <p class="section-kicker">// Ideas are cheap. Building is the real work.</p>
     </div>
 
@@ -337,20 +340,20 @@
         data-year="2024"
         data-desc="A monorepo of 5 engineering modules that combine hardware, IoT, and AI into one cohesive ecosystem. Features an autonomous AI robot with OpenCV facial recognition, a Bluetooth 4WD rover, an RFID-authenticated army gate, an IoT baby cradle with browser controls, and a WebSerial I2C flasher — all documented through a cyberpunk-themed web portal."
         data-tech="C++,Python,OpenCV,ESP8266,Arduino,WebSerial"
-        data-features="Autonomous AI robot with facial recognition|Bluetooth 4WD rover with dual motor drivers|RFID army gate with servo actuation|IoT baby cradle with browser control|WebSerial I2C diagnostic + AVR flashing tool|Live cyberpunk documentation portal"
-        data-links="Live Portal|https://luciferofx.github.io/projectxweb/;Source Code|https://github.com/luciferofx/projectxweb">
+        data-features="Autonomous AI robot with facial recognition||Bluetooth 4WD rover with dual motor drivers||RFID army gate with servo actuation||IoT baby cradle with browser control||WebSerial I2C diagnostic + AVR flashing tool||Live cyberpunk documentation portal"
+        data-links="Live Portal|https://luciferofx.github.io/projectxweb/;;Source Code|https://github.com/luciferofx/projectxweb">
         <div class="project-top">
           <span class="project-badge">Flagship</span>
           <span class="project-year">2024</span>
         </div>
-        <h3>Project X — Hardware & AI Ecosystem</h3>
+        <h3>Project X — Hardware &amp; AI Ecosystem</h3>
         <p>Monorepo of 5 engineering modules: autonomous AI robot, Bluetooth 4WD rover, RFID army gate, IoT baby cradle, and WebSerial I2C flasher. Live cyberpunk portal.</p>
         <div class="project-tech">
           <span>C++</span><span>Python</span><span>OpenCV</span><span>ESP8266</span>
         </div>
         <div class="project-links">
-          <a href="https://luciferofx.github.io/projectxweb/" target="_blank" rel="noopener">Live Portal ↗</a>
-          <a href="https://github.com/luciferofx/projectxweb" target="_blank" rel="noopener">Source ↗</a>
+          <a href="https://luciferofx.github.io/projectxweb/" target="_blank" rel="noopener noreferrer">Live Portal ↗</a>
+          <a href="https://github.com/luciferofx/projectxweb" target="_blank" rel="noopener noreferrer">Source ↗</a>
         </div>
       </article>
 
@@ -360,7 +363,7 @@
         data-year="2024"
         data-desc="A unified citizen-service platform designed to streamline household records, welfare application processing, and automated duplicate-benefit detection. Built to eliminate friction in government service delivery and reduce fraud through intelligent data validation."
         data-tech="React,Node.js,PostgreSQL,Prisma"
-        data-features="Unified household record management|Welfare application processing pipeline|Automated duplicate-benefit detection|Role-based access for citizens and admins|PostgreSQL-backed with Prisma ORM"
+        data-features="Unified household record management||Welfare application processing pipeline||Automated duplicate-benefit detection||Role-based access for citizens and admins||PostgreSQL-backed with Prisma ORM"
         data-links="">
         <div class="project-top"><span class="project-badge">Full-Stack</span></div>
         <h3>JanPehchaan</h3>
@@ -374,11 +377,11 @@
         data-year="2024"
         data-desc="A digital capacity-building and learning management portal built around the Smart India Hackathon 2024 problem statement SIH26075. Designed to connect learners with skill-development resources and provide institutions with tools to manage programs and track outcomes."
         data-tech="React,Node.js,MongoDB"
-        data-features="Learning management system with course tracking|Institution dashboards for program management|Learner progress analytics|SIH 2024 problem statement SIH26075 solution"
+        data-features="Learning management system with course tracking||Institution dashboards for program management||Learner progress analytics||SIH 2024 problem statement SIH26075 solution"
         data-links="">
         <div class="project-top"><span class="project-badge">SIH 2024</span></div>
         <h3>Capacity Connect</h3>
-        <p>Digital capacity-building & learning management portal built around the SIH26075 problem statement.</p>
+        <p>Digital capacity-building &amp; learning management portal built around the SIH26075 problem statement.</p>
         <div class="project-tech"><span>React</span><span>Node.js</span><span>MongoDB</span></div>
       </article>
 
@@ -388,7 +391,7 @@
         data-year="2024"
         data-desc="A mobile-first digital wallet app with secure authentication, QR-code based payments, and full Cashfree financial-services integration. Built with Flutter for cross-platform deployment and Firebase for real-time sync and user management."
         data-tech="Flutter,Firebase,Cashfree"
-        data-features="Secure user authentication with Firebase|QR-code based instant payments|Cashfree payment gateway integration|Transaction history and wallet balance|Cross-platform Flutter app"
+        data-features="Secure user authentication with Firebase||QR-code based instant payments||Cashfree payment gateway integration||Transaction history and wallet balance||Cross-platform Flutter app"
         data-links="">
         <div class="project-top"><span class="project-badge">Mobile</span></div>
         <h3>FluxPay</h3>
@@ -402,7 +405,7 @@
         data-year="2024"
         data-desc="A healthcare platform concept focused on digitizing patient journeys — from appointment booking to service management. Designed to reduce friction between patients and providers with streamlined scheduling and clear service flows."
         data-tech="React,Node.js,MongoDB"
-        data-features="Appointment booking system|Service management flows for providers|Patient dashboard|Healthcare service catalog|Notification reminders"
+        data-features="Appointment booking system||Service management flows for providers||Patient dashboard||Healthcare service catalog||Notification reminders"
         data-links="">
         <div class="project-top"><span class="project-badge">Healthcare</span></div>
         <h3>Medicway</h3>
@@ -416,14 +419,14 @@
         data-year="2024"
         data-desc="A decentralized technology and blockchain exploration project — experimenting with wallet flows, smart-contract interactions, and web integration. Built as a learning vehicle for understanding how decentralized apps interact with user wallets."
         data-tech="Blockchain,Web3,JavaScript"
-        data-features="Wallet connection flow|Blockchain interaction experiments|Web integration with decentralized storage|Decentralized app prototype"
+        data-features="Wallet connection flow||Blockchain interaction experiments||Web integration with decentralized storage||Decentralized app prototype"
         data-links="Source Code|https://github.com/luciferofx/LuciChain-decentralized">
         <div class="project-top"><span class="project-badge">Web3</span></div>
         <h3>LuciChain</h3>
         <p>Decentralized technology and blockchain exploration — wallet flow and web integration.</p>
         <div class="project-tech"><span>Blockchain</span><span>Web Dev</span></div>
         <div class="project-links">
-          <a href="https://github.com/luciferofx/LuciChain-decentralized" target="_blank" rel="noopener">Source ↗</a>
+          <a href="https://github.com/luciferofx/LuciChain-decentralized" target="_blank" rel="noopener noreferrer">Source ↗</a>
         </div>
       </article>
 
@@ -433,14 +436,14 @@
         data-year="2024"
         data-desc="A digital-first loan application concept with a streamlined approval journey. Designed to reduce the friction between applicants and lenders through a clean, guided application flow and faster decisioning."
         data-tech="React,Node.js"
-        data-features="Guided loan application flow|Document upload and verification|Streamlined approval journey|Applicant dashboard"
+        data-features="Guided loan application flow||Document upload and verification||Streamlined approval journey||Applicant dashboard"
         data-links="Source Code|https://github.com/luciferofx/DhanSetu-Loan-app-">
         <div class="project-top"><span class="project-badge">Fintech</span></div>
         <h3>DhanSetu</h3>
         <p>Digital-first loan application concept with a streamlined approval journey.</p>
         <div class="project-tech"><span>React</span><span>Node.js</span></div>
         <div class="project-links">
-          <a href="https://github.com/luciferofx/DhanSetu-Loan-app-" target="_blank" rel="noopener">Source ↗</a>
+          <a href="https://github.com/luciferofx/DhanSetu-Loan-app-" target="_blank" rel="noopener noreferrer">Source ↗</a>
         </div>
       </article>
 
@@ -450,14 +453,14 @@
         data-year="2024"
         data-desc="A full e-commerce experience for buying and redeeming gaming vouchers. Built with PHP and MySQL, featuring a product catalog, cart, checkout flow, and voucher redemption system."
         data-tech="PHP,MySQL,JavaScript"
-        data-features="Product catalog for gaming vouchers|Shopping cart and checkout|Voucher redemption system|Admin panel for inventory"
+        data-features="Product catalog for gaming vouchers||Shopping cart and checkout||Voucher redemption system||Admin panel for inventory"
         data-links="Source Code|https://github.com/luciferofx/ecommerce-gaming-voucher-platform">
         <div class="project-top"><span class="project-badge">E-Commerce</span></div>
         <h3>Gaming Voucher Platform</h3>
         <p>E-commerce experience for buying and redeeming gaming vouchers.</p>
         <div class="project-tech"><span>PHP</span><span>MySQL</span><span>JS</span></div>
         <div class="project-links">
-          <a href="https://github.com/luciferofx/ecommerce-gaming-voucher-platform" target="_blank" rel="noopener">Source ↗</a>
+          <a href="https://github.com/luciferofx/ecommerce-gaming-voucher-platform" target="_blank" rel="noopener noreferrer">Source ↗</a>
         </div>
       </article>
 
@@ -467,14 +470,14 @@
         data-year="2024"
         data-desc="A lightweight, cross-platform screen recording utility built with Python and Tkinter. Simple UI, low system overhead, and easy export to standard video formats."
         data-tech="Python,Tkinter"
-        data-features="One-click screen recording|Lightweight low-overhead capture|Standard video format export|Simple Tkinter interface"
+        data-features="One-click screen recording||Lightweight low-overhead capture||Standard video format export||Simple Tkinter interface"
         data-links="Source Code|https://github.com/luciferofx/Python-Screen-Recorder">
         <div class="project-top"><span class="project-badge">Desktop</span></div>
         <h3>Python Screen Recorder</h3>
         <p>Lightweight screen recording utility built with Python.</p>
         <div class="project-tech"><span>Python</span><span>Tkinter</span></div>
         <div class="project-links">
-          <a href="https://github.com/luciferofx/Python-Screen-Recorder" target="_blank" rel="noopener">Source ↗</a>
+          <a href="https://github.com/luciferofx/Python-Screen-Recorder" target="_blank" rel="noopener noreferrer">Source ↗</a>
         </div>
       </article>
 
@@ -484,10 +487,10 @@
         data-year="2024"
         data-desc="A Wi-Fi-controlled autonomous robot featuring OpenCV-driven facial recognition and I2C LCD telemetry for live status. Paired with a four-wheel rover prototype using Arduino Nano, HC-05 Bluetooth, and dual L298N motor drivers for smooth omnidirectional movement."
         data-tech="C++,Python,OpenCV,ESP8266,Arduino,Bluetooth"
-        data-features="OpenCV facial recognition|Wi-Fi remote control|I2C LCD live telemetry|4WD rover with HC-05 Bluetooth|Dual L298N motor drivers|Arduino Nano controller"
+        data-features="OpenCV facial recognition||Wi-Fi remote control||I2C LCD live telemetry||4WD rover with HC-05 Bluetooth||Dual L298N motor drivers||Arduino Nano controller"
         data-links="">
         <div class="project-top"><span class="project-badge">Hardware</span></div>
-        <h3>Autonomous AI Robot & 4WD Remote Rover</h3>
+        <h3>Autonomous AI Robot &amp; 4WD Remote Rover</h3>
         <p>Wi-Fi-controlled robot with OpenCV facial recognition and I2C LCD telemetry. Four-wheel rover with Arduino Nano, HC-05 Bluetooth, dual L298N drivers.</p>
         <div class="project-tech"><span>C++</span><span>Python</span><span>OpenCV</span><span>ESP8266</span><span>Arduino</span></div>
       </article>
@@ -498,10 +501,10 @@
         data-year="2024"
         data-desc="A collection of IoT hardware prototypes: an RFID-authenticated barrier gate with servo actuation and feedback, a browser-controlled IoT motor speed manager for a smart baby cradle, and a WebSerial diagnostic tool for I2C scanning and AVR firmware flashing."
         data-tech="Arduino Mega,ESP8266,RFID,WebSerial API,PWM"
-        data-features="RFID-authenticated barrier gate|Servo actuation with status feedback|Browser-controlled motor speed manager|WebSerial I2C scanner|AVR firmware flashing tool|Arduino Mega + ESP8266 stack"
+        data-features="RFID-authenticated barrier gate||Servo actuation with status feedback||Browser-controlled motor speed manager||WebSerial I2C scanner||AVR firmware flashing tool||Arduino Mega + ESP8266 stack"
         data-links="">
         <div class="project-top"><span class="project-badge">IoT</span></div>
-        <h3>RFID Army Gate & IoT Baby Cradle</h3>
+        <h3>RFID Army Gate &amp; IoT Baby Cradle</h3>
         <p>RFID-authenticated barrier with servo actuation. Browser-controlled IoT motor speed manager for a smart cradle. WebSerial diagnostic tool for I2C scanning and AVR firmware flashing.</p>
         <div class="project-tech"><span>Arduino Mega</span><span>ESP8266</span><span>RFID</span><span>WebSerial API</span></div>
       </article>
@@ -512,7 +515,7 @@
         data-year="2024"
         data-desc="A task management platform where users complete tasks to earn rewards. Currently at the concept and prototype stage — designed to gamify productivity through a rewards-based system."
         data-tech="React,Node.js,MongoDB"
-        data-features="Task management system|Reward earning mechanism|User dashboard|Task history and analytics"
+        data-features="Task management system||Reward earning mechanism||User dashboard||Task history and analytics"
         data-links="">
         <div class="project-top"><span class="project-badge">Utility</span></div>
         <h3>Task Earning App</h3>
@@ -526,7 +529,7 @@
         data-year="2024"
         data-desc="A performance utility application for system optimization and quick actions. Built with Python and Tkinter for a lightweight, responsive experience on Windows and Linux."
         data-tech="Python,Tkinter"
-        data-features="System optimization tools|Quick action shortcuts|Lightweight Tkinter UI|Cross-platform support"
+        data-features="System optimization tools||Quick action shortcuts||Lightweight Tkinter UI||Cross-platform support"
         data-links="">
         <div class="project-top"><span class="project-badge">Utility</span></div>
         <h3>QuickMax</h3>
@@ -537,26 +540,25 @@
     </div>
 
     <div class="projects-cta" data-reveal>
-      <a href="https://github.com/luciferofx?tab=repositories" target="_blank" rel="noopener" class="btn btn-primary">
+      <a href="https://github.com/luciferofx?tab=repositories" target="_blank" rel="noopener noreferrer" class="btn btn-primary">
         Explore All Projects ↗
       </a>
     </div>
   </div>
 </section>
 
-<!-- ============ FUN GAME ============ -->
-<section class="section section-alt" id="game">
+<section class="section section-alt" id="game" aria-labelledby="gameTitle">
   <div class="container">
     <div class="section-head">
-      <span class="section-index">04</span>
-      <h2 class="section-title">A Little Break?</h2>
+      <span class="section-index" aria-hidden="true">04</span>
+      <h2 class="section-title" id="gameTitle">A Little Break?</h2>
       <p class="section-kicker">// Catch the Spark — test your reflexes.</p>
     </div>
     <div class="game-wrap" data-reveal>
       <div class="game-hud">
         <div>Score: <b id="gameScore">0</b></div>
         <div>Time: <b id="gameTime">20</b>s</div>
-        <button class="btn btn-small" id="gameStart">Start</button>
+        <button class="btn btn-small" id="gameStart" type="button">Start</button>
       </div>
       <div class="game-board" id="gameBoard">
         <div class="game-overlay" id="gameOverlay">
@@ -567,12 +569,11 @@
   </div>
 </section>
 
-<!-- ============ CONTACT ============ -->
-<section class="section" id="contact">
+<section class="section" id="contact" aria-labelledby="contactTitle">
   <div class="container">
     <div class="section-head">
-      <span class="section-index">05</span>
-      <h2 class="section-title">Let's Build Something</h2>
+      <span class="section-index" aria-hidden="true">05</span>
+      <h2 class="section-title" id="contactTitle">Let's Build Something</h2>
       <p class="section-kicker">// No shortcuts. No finished story. Just progress.</p>
     </div>
     <div class="contact-grid">
@@ -581,45 +582,56 @@
         <p>I'm open to freelance projects, collaborations, and interesting conversations about tech, AI, and hardware. Drop a message — I reply fast.</p>
         <div class="contact-info">
           <a href="mailto:luciferofx69@gmail.com" class="contact-item">
-            <span class="ci-icon">✉</span><div><small>Email</small><strong>luciferofx69@gmail.com</strong></div>
+            <span class="ci-icon" aria-hidden="true">✉</span>
+            <div><small>Email</small><strong>luciferofx69@gmail.com</strong></div>
           </a>
-          <a href="https://github.com/luciferofx" target="_blank" rel="noopener" class="contact-item">
-            <span class="ci-icon">◆</span><div><small>GitHub</small><strong>github.com/luciferofx</strong></div>
+          <a href="https://github.com/luciferofx" target="_blank" rel="noopener noreferrer" class="contact-item">
+            <span class="ci-icon" aria-hidden="true">◆</span>
+            <div><small>GitHub</small><strong>github.com/luciferofx</strong></div>
           </a>
-          <a href="https://luciferofx.github.io/luciferofx/" target="_blank" rel="noopener" class="contact-item">
-            <span class="ci-icon">◆</span><div><small>Portfolio</small><strong>luciferofx.github.io</strong></div>
+          <a href="https://luciferofx.github.io/luciferofx/" target="_blank" rel="noopener noreferrer" class="contact-item">
+            <span class="ci-icon" aria-hidden="true">◆</span>
+            <div><small>Portfolio</small><strong>luciferofx.github.io</strong></div>
           </a>
         </div>
       </div>
       <form class="contact-form" id="contactForm" data-reveal
             action="https://formspree.io/f/xzeelepn"
-            method="POST">
+            method="POST"
+            novalidate>
         <div class="form-row">
-          <label>Name<input type="text" name="name" required placeholder="Your name" /></label>
-          <label>Email<input type="email" name="email" required placeholder="you@email.com" /></label>
+          <label for="contactName">Name
+            <input type="text" id="contactName" name="name" required placeholder="Your name" autocomplete="name" />
+          </label>
+          <label for="contactEmail">Email
+            <input type="email" id="contactEmail" name="email" required placeholder="you@email.com" autocomplete="email" />
+          </label>
         </div>
-        <label>Message<textarea name="message" rows="5" required placeholder="Tell me about your idea..."></textarea></label>
-        <input type="text" name="_gotcha" style="display:none" tabindex="-1" autocomplete="off" />
+        <label for="contactMessage">Message
+          <textarea id="contactMessage" name="message" rows="5" required placeholder="Tell me about your idea..."></textarea>
+        </label>
+        <input type="text" name="_gotcha" class="hp-field" tabindex="-1" autocomplete="off" aria-hidden="true" />
         <button type="submit" class="btn btn-primary btn-full" id="formSubmitBtn">
           <span class="btn-label">Send Message →</span>
           <span class="btn-spinner" style="display:none">⏳ Sending...</span>
         </button>
-        <p class="form-status" id="formStatus"></p>
+        <p class="form-status" id="formStatus" role="status" aria-live="polite"></p>
       </form>
     </div>
   </div>
 </section>
 
-<!-- ============ FOOTER ============ -->
+</main>
+
 <footer class="footer">
   <div class="container footer-inner">
-    <div class="footer-logo">&lt;<span>RS</span>/&gt;</div>
+    <div class="footer-logo" aria-hidden="true">&lt;<span>RS</span>/&gt;</div>
     <p>© 2024 Raja Sharma · Built with intent, not templates.</p>
-    <div class="footer-links">
-      <a href="https://github.com/luciferofx" target="_blank" rel="noopener">GitHub</a>
+    <nav class="footer-links" aria-label="Footer">
+      <a href="https://github.com/luciferofx" target="_blank" rel="noopener noreferrer">GitHub</a>
       <a href="mailto:luciferofx69@gmail.com">Email</a>
       <a href="#home">Top ↑</a>
-    </div>
+    </nav>
   </div>
 </footer>
 
